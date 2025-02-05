@@ -98,8 +98,10 @@
 		var yearCurrent = document.getElementById('year-current');
 		var yearProgress = document.getElementById('year-progress');
 		var yearProgressText = document.getElementById('year-progress-text');
-		setInterval(tick, 200);
-		tick();
+
+		//setInterval(tick, 200);
+		//tick();
+		requestAnimationFrame(tick);
 
 		function tick() {
 			var time = new Date();
@@ -116,6 +118,8 @@
 			yearProgressText.textContent = percent.toFixed(6) + ' %';
 			yearProgress.textContent = percent.toFixed(1) + '%';
 			yearProgress.style.width = percent.toFixed(3) + '%';
+
+			requestAnimationFrame(tick);
 		}
 	});
 </script>
